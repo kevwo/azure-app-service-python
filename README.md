@@ -32,8 +32,8 @@ This consists of a Flask App that will place jobs in an Azure Service Bus Queue 
 3. Create WebJob for worker (under Settings -> WebJobs)
  * Select the continuous WebJob option
  * Upload a dummy file for now. (It must have a .exe, .py, etc. extension to upload)
- * Take the WebJob name for #2, and put this in `sampleapp.worker/__init__.py` as `name = 'WHATEVER_NAME_YOU_CHOSE'`
-4. Set environmental variables (from config.yml) in Settings -> Application Settings under app settings.
+ * Take the WebJob name, and put this in `sampleapp.worker/__init__.py` as `name = 'WHATEVER_NAME_YOU_CHOSE'`
+4. Set environmental variables (from `config.yml`) in Settings -> Application Settings under app settings.
  * Copy Key and Values from `config.yml` precisely. (Leave out `LOCAL: True` from Azure though)
  * Don't use quotations when pasting values in Azure App Settings.
 5. Create deployment credentials (under Settings -> Publishing)
