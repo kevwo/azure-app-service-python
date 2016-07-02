@@ -4,7 +4,8 @@ Sample WebApp and WebJob in python hosted via Azure App Service.
 This consists of a Flask App that will place jobs in an Azure Service Bus Queue along with a Worker (WebJob) that processes items on the Service Bus Queue.
 
 ## Basic App Setup
-1. Create a config.yml file in the project root - next to deploy.cmd. A full example file can be found at the bottom of this readme
+1. Create a `config.yml` file in the project root - next to `deploy.cmd`.
+ * A full example file can be found at the bottom of this readme
 2. Create Service Bus Namespace
  * Put the name in `config.yml` under key `SERVICE_BUS_NAMESPACE`
 3. Create Service Bus Queue under the namespace
@@ -12,7 +13,7 @@ This consists of a Flask App that will place jobs in an Azure Service Bus Queue 
  * Check Lock Duration timer and make sure it is 30 seconds
  * Create a shared access policy named with properties send and listen
   * Put the shared accesskey name & shared accesskey value in `config.yml` under `SERVICE_BUS_QUEUE_ACCESS_KEY_NAME`, `SERVICE_BUS_QUEUE_ACCESS_KEY_VALUE`
-4. Finish preparing the config.yml with a few basic values:
+4. Finish preparing the `config.yml` with a few basic values:
  * `LOCAL: True`
  * `SERVER_HOST: "localhost"`
  * `SERVER_PORT: 80`
@@ -31,13 +32,14 @@ This consists of a Flask App that will place jobs in an Azure Service Bus Queue 
 3. Create WebJob for worker (under Settings -> WebJobs)
  * Select the continuous WebJob option
  * Upload a dummy file for now. (It must have a .exe, .py, etc. extension to upload)
- * Take the WebJob name for #2, and put this in sampleapp.worker/__init__.py as `name = 'WHATEVER_NAME_YOU_CHOSE'`
+ * Take the WebJob name for #2, and put this in `sampleapp.worker/__init__.py` as `name = 'WHATEVER_NAME_YOU_CHOSE'`
 4. Set environmental variables (from config.yml) in Settings -> Application Settings under app settings.
- * Copy Key and Values from config.yml precisely. (Leave out LOCAL: True from Azure though)
+ * Copy Key and Values from `config.yml` precisely. (Leave out `LOCAL: True` from Azure though)
  * Don't use quotations when pasting values in Azure App Settings.
 5. Create deployment credentials (under Settings -> Publishing)
 6. Go to Deployment source and chose the source Local Git Repository
-7. Add this as a remote to your local git repo. Name this remote azure `git remote add azure https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git`
+7. Add this as a remote to your local git repo. Name this remote azure
+ * `git remote add azure https://username@needsmoregit.scm.azurewebsites.net:443/NeedsMoreGit.git`
 8. Deploy via `git push azure master`
 
 ## Customizations
@@ -50,10 +52,12 @@ This consists of a Flask App that will place jobs in an Azure Service Bus Queue 
 * You should not modify ptvs_virtualenv_proxy.py
 
 ## Sample config.yml
-```LOCAL: True
+```
+LOCAL: True
 SERVICE_BUS_NAMESPACE: "samplenamespace"
 SERVICE_BUS_QUEUE_NAME: "sampleapp"
 SERVICE_BUS_QUEUE_ACCESS_KEY_NAME: "worker"
 SERVICE_BUS_QUEUE_ACCESS_KEY_VALUE: "aCVh23a*********************************tys="
 SERVER_HOST: "localhost"
-SERVER_PORT: 80```
+SERVER_PORT: 80
+```
