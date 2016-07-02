@@ -1,0 +1,5 @@
+flask==0.10.1
+requests==2.7.0
+azure==1.0.3
+azure-servicebus==0.20.2
+PyYAML==3.11
